@@ -4,110 +4,155 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 public class MainActivity extends AppCompatActivity {
-    private EditText n1Txt;
-    private EditText n2Txt;
-    private TextView resultadoTxt;
+    private EditText pantalla;
+    private Button botones;
+    private int sumaParcial;
+    private String operacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.n1Txt = findViewById(R.id.n1_txt);
-        this.n2Txt = findViewById(R.id.n2_txt);
-        this.resultadoTxt = findViewById(R.id.res_txt);
-    }
-    private double calcular(int n1, int n2, String op)throws Exception{
-        double resultado=0;
-        switch(op){
-            case "suma": resultado = n1 + n2;
-            break;
-            case "resta": resultado = n1 - n2;
-            break;
-            case "multiplicacion": resultado = n1*n2;
-            break;
-            case "division": resultado = n1/n2;
-            break;
-            case "resto": resultado = Math.floorMod(n1,n2);
-            break;
-            default: throw new Exception();
+        this.pantalla = findViewById(R.id.n1_txt);
+        this.operacion = "";
 
-        }
-        return resultado;
-    }
-    public void sumar(View v){
-        int n1,n2;
-        n1 = Integer.parseInt(this.n1Txt.getText().toString());
-        n2 = Integer.parseInt(this.n2Txt.getText().toString());
-        try {
-            double suma = calcular(n1,n2, "suma");
-            Toast.makeText(this,"La suma es: "+suma,Toast.LENGTH_LONG).show();
-            this.resultadoTxt.setText(""+suma);
-
-
-        }catch (Exception e){
-            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
-        }
 
     }
-    public void restar(View v){
+//TODO: esquema de funcionalidad , logica de numero anterior y numero posterior, se ejecuta siempre la operacion anterior, osea ingresar primer numero, el ingresar operacion guarda primer numero y se establece la operacion a realizar(Bandera), luego al ingresar el siguiente numero y realizar cualquier operacion realiza la ultima operacion registrada.
 
-        int n1,n2;
-        n1 = Integer.parseInt(this.n1Txt.getText().toString());
-        n2 = Integer.parseInt(this.n2Txt.getText().toString());
-        try {
-        double resta = calcular(n1,n2, "resta");
-        Toast.makeText(this,"La resta es: "+resta,Toast.LENGTH_LONG).show();
-        this.resultadoTxt.setText(""+resta);
-        }catch (Exception e){
-        Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+    public void igual(View v) {
+
+
+
+    }
+
+    public void sumar(View v) {
+
+        if (this.operacion == "" || this.operacion == "resultado") {
+            this.sumaParcial = Integer.parseInt(this.pantalla.getText().toString());
+            this.operacion = "sumando";
+            this.pantalla.setText("");
+
+        }else if(this.operacion != ""){
+
+            int resultado = sumaParcial + Integer.parseInt(this.pantalla.getText().toString());
+            this.pantalla.setText(""+resultado);
+            sumaParcial = resultado;
+            this.operacion = "resultado";
+
         }
+    }
 
-}
-    public void multiplicar(View v){
 
-        int n1,n2;
-        n1 = Integer.parseInt(this.n1Txt.getText().toString());
-        n2 = Integer.parseInt(this.n2Txt.getText().toString());
-        try {
-            double multi = calcular(n1,n2, "multiplicacion");
-            Toast.makeText(this,"La multiplicacion es: "+multi,Toast.LENGTH_LONG).show();
-            this.resultadoTxt.setText(""+multi);
-        }catch (Exception e){
-            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+    public void numero1(View v) {
+
+        if(this.operacion == "resultado") {
+            this.pantalla.setText("");
+            String vista = this.pantalla.getText().toString();
+            this.pantalla.setText(vista + 1);
+
+        }else{
+            String vista = this.pantalla.getText().toString();
+            this.pantalla.setText(vista + 1);
+        }
+    }
+    public void numero2(View v) {
+        if(this.operacion == "resultado") {
+            this.pantalla.setText("");
+            String vista = this.pantalla.getText().toString();
+            this.pantalla.setText(vista + 2);
+        }else{
+            String vista = this.pantalla.getText().toString();
+            this.pantalla.setText(vista+2);
+        }
+    }
+    public void numero3(View v) {
+        if(this.operacion == "resultado") {
+            this.pantalla.setText("");
+            String vista = this.pantalla.getText().toString();
+            this.pantalla.setText(vista + 3);
+        }else{
+            String vista = this.pantalla.getText().toString();
+            this.pantalla.setText(vista+3);
+        }
+    }
+    public void numero4(View v) {
+        if(this.operacion == "resultado") {
+            this.pantalla.setText("");
+            String vista = this.pantalla.getText().toString();
+            this.pantalla.setText(vista + 4);
+        }else{
+            String vista = this.pantalla.getText().toString();
+            this.pantalla.setText(vista+4);
+        }
+    }
+    public void numero5(View v) {
+        if(this.operacion == "resultado") {
+            this.pantalla.setText("");
+            String vista = this.pantalla.getText().toString();
+            this.pantalla.setText(vista + 5);
+        }else{
+            String vista = this.pantalla.getText().toString();
+            this.pantalla.setText(vista+5);
+        }
+    }
+    public void numero6(View v) {
+        if(this.operacion == "resultado") {
+            this.pantalla.setText("");
+            String vista = this.pantalla.getText().toString();
+            this.pantalla.setText(vista + 6);
+        }else{
+            String vista = this.pantalla.getText().toString();
+            this.pantalla.setText(vista+6);
+        }
+    }
+    public void numero7(View v) {
+        if(this.operacion == "resultado") {
+            this.pantalla.setText("");
+            String vista = this.pantalla.getText().toString();
+            this.pantalla.setText(vista + 7);
+        }else{
+            String vista = this.pantalla.getText().toString();
+            this.pantalla.setText(vista+7);
+        }
+    }
+    public void numero8(View v) {
+        if(this.operacion == "resultado") {
+            this.pantalla.setText("");
+            String vista = this.pantalla.getText().toString();
+            this.pantalla.setText(vista + 8);
+        }else{
+            String vista = this.pantalla.getText().toString();
+            this.pantalla.setText(vista+8);
+        }
+    }
+    public void numero9(View v) {
+        if(this.operacion == "resultado") {
+            this.pantalla.setText("");
+            String vista = this.pantalla.getText().toString();
+            this.pantalla.setText(vista + 9);
+        }else{
+            String vista = this.pantalla.getText().toString();
+            this.pantalla.setText(vista+9);
         }
 
     }
-    public void division(View v){
-
-        int n1,n2;
-        n1 = Integer.parseInt(this.n1Txt.getText().toString());
-        n2 = Integer.parseInt(this.n2Txt.getText().toString());
-        try {
-            double div = calcular(n1,n2, "division");
-            Toast.makeText(this,"La division es: "+div,Toast.LENGTH_LONG).show();
-            this.resultadoTxt.setText(""+div);
-        }catch (Exception e){
-            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+    public void numero0(View v) {
+        if(this.operacion == "resultado") {
+            this.pantalla.setText("");
+            String vista = this.pantalla.getText().toString();
+            this.pantalla.setText(vista + 0);
+        }else{
+            String vista = this.pantalla.getText().toString();
+            this.pantalla.setText(vista+0);
         }
-
-    }
-    public void modulo(View v){
-
-        int n1,n2;
-        n1 = Integer.parseInt(this.n1Txt.getText().toString());
-        n2 = Integer.parseInt(this.n2Txt.getText().toString());
-        try {
-            double mod = calcular(n1,n2, "resto");
-            Toast.makeText(this,"El resto es: "+mod,Toast.LENGTH_LONG).show();
-            this.resultadoTxt.setText(""+mod);
-        }catch (Exception e){
-            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
-        }
-
     }
 }
