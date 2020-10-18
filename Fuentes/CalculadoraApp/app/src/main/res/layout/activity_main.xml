@@ -114,6 +114,37 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:padding="@dimen/paddinGeneral"
+            android:onClick="modulo"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:text="%"
+            android:layout_marginTop="@dimen/topTxt"
+            android:background="@color/secondary_text"
+            android:textSize="@dimen/tamanioLetra"
+
+
+            ></Button>
+        <Button
+            android:padding="@dimen/paddinGeneral"
+            android:onClick=""
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""
+            android:layout_marginTop="@dimen/topTxt"
+            android:background="@color/secondary_text"
+            android:textSize="@dimen/tamanioLetra"
+            ></Button>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="@dimen/topTxt"
         >

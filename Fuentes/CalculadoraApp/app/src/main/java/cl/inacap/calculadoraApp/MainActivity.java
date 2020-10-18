@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
             break;
             case "division": resultado = n1/n2;
             break;
+            case "resto": resultado = Math.floorMod(n1,n2);
+            break;
             default: throw new Exception();
 
         }
@@ -89,6 +91,20 @@ public class MainActivity extends AppCompatActivity {
             double div = calcular(n1,n2, "division");
             Toast.makeText(this,"La division es: "+div,Toast.LENGTH_LONG).show();
             this.resultadoTxt.setText(""+div);
+        }catch (Exception e){
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+    public void modulo(View v){
+
+        int n1,n2;
+        n1 = Integer.parseInt(this.n1Txt.getText().toString());
+        n2 = Integer.parseInt(this.n2Txt.getText().toString());
+        try {
+            double mod = calcular(n1,n2, "resto");
+            Toast.makeText(this,"El resto es: "+mod,Toast.LENGTH_LONG).show();
+            this.resultadoTxt.setText(""+mod);
         }catch (Exception e){
             Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
         }
